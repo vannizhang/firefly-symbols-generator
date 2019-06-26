@@ -1,7 +1,8 @@
+import './style.scss';
 import React from 'react';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark as highlighterStyle } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 export default class CodeSnippet extends React.PureComponent {
 
@@ -11,9 +12,11 @@ export default class CodeSnippet extends React.PureComponent {
 
     render(){
 
+        console.log(highlighterStyle);
+
         return(
             <div style={{maxWidth: '680px'}}>
-                <SyntaxHighlighter language="javascript" style={docco}>
+                <SyntaxHighlighter className='reset-code-style' language="javascript" style={highlighterStyle}>
                     {this.props.code || ''}
                 </SyntaxHighlighter>
             </div>

@@ -23,7 +23,8 @@ export default class Symbol extends React.PureComponent {
         const style = {
             height: '30px',
             width: '30px',
-            border: `2px solid ${borderColor}`
+            border: `2px solid ${borderColor}`,
+            boxSizing: 'border-box'
         }
         
         return(

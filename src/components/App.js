@@ -13,7 +13,8 @@ export default class App extends React.PureComponent {
 
         this.state = {
             activeStyleName: initStyle.name,
-            activeStyleUrl: initStyle.url
+            activeStyleUrl: initStyle.url,
+            symbolSize: 24
         };
 
         this.fireflySymbolOnClick = this.fireflySymbolOnClick.bind(this);
@@ -45,15 +46,17 @@ export default class App extends React.PureComponent {
     render(){
         const panelStyle = {
             position: 'absolute',
-            bottom: '15px',
+            top: 0,
+            bottom: 0,
             right: 0,
             padding: '1rem',
-            background: 'rgba(0,0,0,0.7)'
+            background: 'rgba(30,30,30,0.7)'
         };
 
         return(
             <div id='appContentDiv'>
                 <Map 
+                    symbolSize={this.state.symbolSize}
                     activeStyleUrl={this.state.activeStyleUrl}
                 />
 
@@ -68,6 +71,7 @@ export default class App extends React.PureComponent {
                     <CodeExample 
                         activeStyleUrl={this.state.activeStyleUrl}
                         activeStyleName={this.state.activeStyleName}
+                        symbolSize={this.state.symbolSize}
                     />
                 </div>
 

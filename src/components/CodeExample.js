@@ -17,23 +17,19 @@ export default class CodeExample extends React.PureComponent {
 
     render(){
 
-        const symbolAsUrl = `
-var symbol = {
+        const symbolAsUrl = `var symbol = {
     type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
     url: '${this.props.activeStyleName}',
-    width: "64px",
-    height: "64px"
-};
-        `;
+    width: '${this.props.symbolSize + 'px'}',
+    height: '${this.props.symbolSize + 'px'}'
+};`;
 
-        const symbolAsDataUri = `
-var symbol = {
+        const symbolAsDataUri = `var symbol = {
     type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
     url: '${this.props.activeStyleUrl}',
-    width: "64px",
-    height: "64px"
-};
-        `;
+    width: '${this.props.symbolSize + 'px'}',
+    height: '${this.props.symbolSize + 'px'}'
+};`;
 
         return (
             <div style={{position: 'relative'}}>

@@ -7,13 +7,15 @@ const esriLoaderOptions = {
 
 const config = {
     containerId: 'viewDiv',
-    webmapId: '683e5e0b6dca49109d65f00e23014b88',
+    webmapId: '4c2895b0eb4b42399a1d6885410844fc',
 };
 
 export default class Map extends React.PureComponent {
 
     constructor(props){
         super(props);
+
+        this.mapView = null;
 
         this.state = {
 
@@ -30,11 +32,45 @@ export default class Map extends React.PureComponent {
                 }
             });
       
-            const view = new MapView({
+            this.mapView = new MapView({
                 container: config.containerId,
                 map: webmap
             });
+
+            this.mapView.when(()=>{
+                this.updateRendererFortheDemoLayer();
+            });
         });
+    }
+
+    updateRendererFortheDemoLayer(){
+        const demoLayer = this.mapView.map.layers.getItemAt(0);
+        // console.log(demoLayer);
+
+        if(this.props.activeStyleUrl && demoLayer){
+
+            const symbolSize = this.state.symbolSize ? this.state.symbolSize + 'px' : '24px';
+
+            const symbol = {
+                type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+                url: this.props.activeStyleUrl,
+                width: symbolSize,
+                height: symbolSize
+            };
+
+            const renderer = {
+                type: "simple",
+                symbol
+            };
+
+            demoLayer.renderer = renderer;
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(this.props.activeStyleUrl !== prevProps.activeStyleUrl){
+            this.updateRendererFortheDemoLayer();
+        }
     }
 
     componentDidMount(){
