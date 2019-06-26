@@ -4,6 +4,10 @@ import Map from './Map';
 import FireflySymbolList from './FireflySymbolsList';
 import CodeExample from './CodeExample';
 
+const config = {
+    sidebar_width: 640
+};
+
 export default class App extends React.PureComponent {
 
     constructor(props){
@@ -50,7 +54,9 @@ export default class App extends React.PureComponent {
             bottom: 0,
             right: 0,
             padding: '1rem',
-            background: 'rgba(30,30,30,0.7)'
+            background: 'rgba(30,30,30,0.7)',
+            width: config.sidebar_width + 'px',
+            boxSizing: 'border-box'
         };
 
         return(
@@ -58,6 +64,7 @@ export default class App extends React.PureComponent {
                 <Map 
                     symbolSize={this.state.symbolSize}
                     activeStyleUrl={this.state.activeStyleUrl}
+                    paddingRight={config.sidebar_width}
                 />
 
                 <div style={panelStyle}>

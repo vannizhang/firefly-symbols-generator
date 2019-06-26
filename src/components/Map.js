@@ -34,7 +34,10 @@ export default class Map extends React.PureComponent {
       
             this.mapView = new MapView({
                 container: config.containerId,
-                map: webmap
+                map: webmap,
+                padding: {
+                    right: this.props.paddingRight || 0
+                }
             });
 
             this.mapView.when(()=>{
