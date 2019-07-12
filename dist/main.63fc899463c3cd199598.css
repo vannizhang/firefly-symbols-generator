@@ -16,3 +16,17 @@ html{overflow-y:auto;min-height:100%;font-size:100%;-webkit-text-size-adjust:100
   align-content: stretch;
   align-items: stretch; }
 
+.code-snippet-wrap .reset-code-style code {
+  padding: .75em;
+  border: unset;
+  color: unset;
+  background-color: unset; }
+
+.code-snippet-wrap .code-copy-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: .25rem .5rem;
+  z-index: 5; }
+
