@@ -11,7 +11,7 @@ import { getFireflySymbolsData } from './js/prepareData';
 const initApp = ()=>{
 
     const firsflySymbols = getFireflySymbolsData();
-    console.log(firsflySymbols);
+    // console.log(firsflySymbols);
 
     ReactDOM.render(
         <App
