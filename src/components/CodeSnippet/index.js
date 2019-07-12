@@ -3,6 +3,7 @@ import React from 'react';
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark as highlighterStyle } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import copyTextToClipboard from '../../js/copy2clipboard';
 
 export default class CodeSnippet extends React.PureComponent {
 
@@ -17,6 +18,7 @@ export default class CodeSnippet extends React.PureComponent {
     }
 
     copyBtnOnClick(){
+        copyTextToClipboard(this.props.code);
         this.updateCopyBtnLabel();
     }
 

@@ -17,14 +17,16 @@ export default class CodeExample extends React.PureComponent {
 
     render(){
 
-        const symbolAsUrl = `var symbol = {
+        const symbolAsUrl = `// firefly symbol as image file
+var symbol = {
     type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
-    url: '${this.props.activeStyleName}',
+    url: 'https://static.arcgis.com/images/Symbols/Firefly/${this.props.activeStyleName}.png', 
     width: '${this.props.symbolSize + 'px'}',
     height: '${this.props.symbolSize + 'px'}'
 };`;
 
-        const symbolAsDataUri = `var symbol = {
+        const symbolAsDataUri = `// firefly symbol as Data URI
+var symbol = {
     type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
     url: '${this.props.activeStyleUrl}',
     width: '${this.props.symbolSize + 'px'}',
